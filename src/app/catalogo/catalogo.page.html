@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>CATALOGO DE PRODUCTOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">CATALOGO</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-list>
+      <ion-item-sliding *ngFor="let producto of productos">
+        <ion-item>
+          <ion-avatar>
+            <img src="http://localhost:8081/backcarrito/public/{{ producto.foto }}" alt="">
+          </ion-avatar>
+          <ion-label>
+            <h3 class="title">{{ producto.descripcion }}</h3>
+            <p class="subtext">{{ producto.precio }}</p>
+          </ion-label>
+
+          <ion-button (click)="addCarrito(producto)">Añadir al Carrito</ion-button>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>
